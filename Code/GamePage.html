@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Style for navigation bar and background of body -->
+		<!-- Will eventually move style code to separate CSS file -->
+		<style>
+			ul{list-style-type: none;
+				margin: 0;
+				text-align: center;
+				padding: 0;
+				overflow: hidden;
+				background-color:  #A0522D;}
+	
+			li{float: left;}
+	
+			li a{display: block;
+				color: white;
+				text-align: center;
+				font-family: sans-serif;
+				font-size: 110%;
+				padding: 15px 10px;
+				text-decoration: none;}
+	
+			li a:hover{background-color:  #CD853F;}
+			
+			body{
+    			background-image: url("http://cdn.wallpapersafari.com/2/54/oG2l86.jpg");
+    			min-height: 100%;}
+    		
+    		/* Delete this later */	
+    		div{
+    			background-color: black;
+    			color: white;
+    			text-align: center;
+    			padding-bottom: 25px;
+    			padding-left: 25px;
+    			padding-right: 25px;
+    			padding-top: 0px;
+    			top: 200px;
+    			opacity: 1.0;
+    			filter: alpha(opacity=100); /* For IE8 and earlier */
+    		}
+    		
+		</style>
+
+		<meta name="description" content="Summary of main story of game."/>
+		
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<meta charset="ISO-8859-1">
+		<title>Game</title>
+	</head>
+	
+	<body>
+	
+		<ul>
+			<!-- Link to other pages on the website -->
+			<li><a href="HomePage.html">Home Page</a></li>
+			<li><a href="About.html">About</a></li>
+			<li><a href="Summary.html">Summary</a></li>
+			<li><a href="Updates.html">Updates</a></li>
+			<li><a href="Contact.html">Contact Us</a></li>
+		</ul>
+		
+		
+		<div class="w3-display-middle">
+			<h1 class="w3-jumbo w3-animate-top">Sample Game</h1>
+			
+			<img src="Floor0Side1.JPG" width="626" height="417" alt="Floor0"
+			usemap="#floor0map"/>
+				
+			<map name="floor0map">
+				<area shape="rect" coords="400,250,500,280" alt="Lock" href="Floor0Side1Lock.JPG">
+			</map>
+		</div>
+	
+	</body>
+</html>

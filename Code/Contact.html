@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<meta charset="ISO-8859-1">
+		
+		<!-- Style for navigation bar and background of body -->
+		<style>
+		
+			ul{list-style-type: none;
+				margin: 0;
+				text-align: center;
+				padding: 0;
+				overflow: hidden;
+				background-color:  #A0522D;}
+	
+			li{float: left;}
+	
+			li a{display: block;
+				color: white;
+				text-align: center;
+				font-family: sans-serif;
+				font-size: 110%;
+				padding: 15px 10px;
+				text-decoration: none;}
+	
+			li a:hover{background-color:  #CD853F;}
+			
+			body{
+    			background-image: url("http://cdn.wallpapersafari.com/2/54/oG2l86.jpg");
+    			min-height: 100%;}
+		</style>
+		
+		<!-- Script to check validity of message -->
+		
+		<script type="text/javascript">
+			
+			/*
+				checkEmpty
+				
+				This function expects to be called by the onblur attribute of
+				a field and checks to see if it's empty.
+			
+			*/
+			function checkEmpty(fieldname)
+			{
+				var this_ele=document.getElementById(fieldname);
+				if(this_ele.value == 0)
+				{
+					window.alert("This field cannot be empty.");
+					return true;
+				}
+				else
+				{
+					//field is not empty so return false;
+					return false;
+				}
+			};
+			
+			/* checkMessageEmpty
+			
+				This funciton expects to be called by the onblur attribute of
+				the message id and checks to see that it has been filled out.
+			
+			*/
+			
+			function checkMessageEmpty(fieldname)
+			{
+				var m = document.getElementById(fieldname).value;
+				if(m == "")
+				{
+					//if text area is empty, alert user and return true;
+					window.alert("Please type a messsage.");
+					return true;
+				}
+				else
+				{
+					//text area is not empty so return false;
+					return false;
+				}
+			};
+		
+			/* checkForm
+			
+				When submit button is clicked, it will call this function
+				and check all the fields to see if they are empty or if the
+				subject line is too long. If not, it will alert the user if
+				not all fields are filled in or the subject line they typed
+				is too long.
+			
+			*/
+			
+			function checkForm()
+			{
+				
+				//if any function returns true, alert user and return false
+				if(checkEmpty("reciever") || checkEmpty("sender")
+						|| checkEmpty("subject") || checkMessageEmpty("message"))
+				{
+					window.alert("All fields are required to be filled out.");
+					return false;
+				}
+				else
+				{
+					// form is valid so return true
+					return true;
+				}
+					
+
+			};
+		</script>
+		
+		<meta name="description" content="Contact page where users can email people working on the project."/>
+		
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		
+		<title>Contact Us</title>
+	</head>
+	
+	<body>
+		<ul>
+			<!-- Link to other pages on the website -->
+			<li><a href="HomePage.html">Home Page</a></li>
+			<li><a href="About.html">About</a></li>
+			<li><a href="Updates.html">Updates</a></li>
+			<li><a href="GamePage.html">Game</a></li>
+			<li><a href="Summary.html">Summary</a></li>
+		</ul>
+		
+		<form  method="POST" action="MessageValidator.php" onsubmit="return checkForm()">
+		<p><b>Please fill out the form below to send a message to the admins.</b></p><br />
+		
+			<!-- Ask user who they are messaging -->
+			<fieldset>
+				<legend>Details:</legend>
+				<div class='reciever'>
+					<label for='reciever'>To: </label>
+					<input type='text' name='reciever' id='reciever'
+							size='20' maxlength='15' onblur='checkEmpty(this.id)'/>
+				</div><br />
+				
+				<!-- Ask user to type in their name for sender -->
+				<div class='sender'>
+					<label for='sender'>From: </label>
+					<input type='text' name='sender' id='sender'
+							size='20' maxlength='15' onblur='checkEmpty(this.id)'/>
+				</div><br />
+				
+				<!-- Ask user to type in the subject of the email -->
+				<div class='subject'>
+					<label for='subject'>Subject: </label>
+					<input type='text' name='subject' id='subject'
+							size='30' maxlength='25' onblur='checkEmpty(this.id)'/>
+				</div>
+			</fieldset><br />
+			
+			<!-- User can type message here -->
+			<fieldset>
+			<legend>Message:</legend>
+				<div class='message'>
+					<p>
+					<label for='message'>Your Message </label>
+					<textarea name="message" cols="20" rows="10" onblur='checkMessageEmtpy(this.id)'></textarea>
+					</p>
+				</div><br />
+			</fieldset>
+			
+			
+			<!-- Button to submit the message -->
+			<div id='submit'>
+				<input type='submit' value="Submit Message">
+			</div>
+			
+			<div class="w3-display-bottomright w3-padding-large">
+    			Image from <a href="http://cdn.wallpapersafari.com/2/54/oG2l86.jpg" target="_blank">wallpaper safari</a>
+  			</div>
+  			
+		</form>
+		
+	</body>
+	
+</html>
